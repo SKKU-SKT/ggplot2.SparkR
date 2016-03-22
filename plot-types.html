@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>ggplot2.SparkR Plot Types</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Plot Types</h1>
+        <h2>Getting Stared</h2>
+        <a href="https://github.com/SKKU-SKT/ggplot2.SparkR" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h2>
+
+<a id="plot-types" class="anchor" href="#plot-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Plot Types</h2>
+
+<p>Six plot types of original ggplot2 are supported in ggplot2.sparkR now. More types will be updated.</p>
+
+<p>Since the usage of ggplot2.sparkR is exactly the same with origin ggplot2.sparkR, we could click following links to reference them in the original ggplot2 documentation.</p>
+
+<h3>
+<a id="geoms" class="anchor" href="#geoms" aria-hidden="true"><span class="octicon octicon-link"></span></a>Geoms</h3>
+
+<p>Geoms, short for geometric objects, describe the type of plot you will produce.</p>
+
+<ul>
+<li><a href="http://docs.ggplot2.org/current/geom_bar.html">geom_bar</a></li>
+<li><a href="http://docs.ggplot2.org/current/geom_bin2d.html">geom_bin2d</a></li>
+<li><a href="http://docs.ggplot2.org/current/geom_boxplot.html">geom_boxplot</a></li>
+<li><a href="http://docs.ggplot2.org/current/geom_histogram.html">geom_freqpoly</a></li>
+<li><a href="http://docs.ggplot2.org/current/geom_histogram.html">geom_histogram</a></li>
+</ul>
+
+<h3>
+<a id="statistics" class="anchor" href="#statistics" aria-hidden="true"><span class="octicon octicon-link"></span></a>Statistics</h3>
+
+<p>It’s often useful to transform your data before plotting, and that’s what statistical transformations do.</p>
+
+<ul>
+<li><a href="http://docs.ggplot2.org/current/geom_histogram.html">stat_bin</a></li>
+<li><a href="http://docs.ggplot2.org/current/geom_bin2d.html">stat_bin2d</a></li>
+<li><a href="http://docs.ggplot2.org/current/geom_boxplot.html">stat_boxplot</a></li>
+<li><a href="http://docs.ggplot2.org/current/geom_count.html">stat_sum</a></li>
+</ul>
+
+<h3>
+<a id="scales" class="anchor" href="#scales" aria-hidden="true"><span class="octicon octicon-link"></span></a>Scales</h3>
+
+<ul>
+<li><a href="http://docs.ggplot2.org/current/scale_continuous.html">scale_x_log10</a></li>
+<li><a href="http://docs.ggplot2.org/current/scale_continuous.html">scale_y_log10</a></li>
+<li><a href="http://docs.ggplot2.org/current/labs.html">labs</a></li>
+<li><a href="http://docs.ggplot2.org/current/labs.html">xlab</a></li>
+<li><a href="http://docs.ggplot2.org/current/labs.html">ylab</a></li>
+<li><a href="http://docs.ggplot2.org/current/lims.html">xlim</a></li>
+<li><a href="http://docs.ggplot2.org/current/lims.html">ylim</a></li>
+</ul>
+
+<h3>
+<a id="coordinate-systems" class="anchor" href="#coordinate-systems" aria-hidden="true"><span class="octicon octicon-link"></span></a>Coordinate Systems</h3>
+
+<ul>
+<li><a href="http://docs.ggplot2.org/current/coord_cartesian.html">coord_cartesian</a></li>
+<li><a href="http://docs.ggplot2.org/current/coord_flip.html">coord_flip</a></li>
+</ul>
+
+<h3>
+<a id="facets" class="anchor" href="#facets" aria-hidden="true"><span class="octicon octicon-link"></span></a>Facets</h3>
+
+<ul>
+<li><a href="http://docs.ggplot2.org/current/facet_grid.html">facet_grid</a></li>
+<li><a href="http://docs.ggplot2.org/current/facet_null.html">facet_null</a></li>
+<li><a href="http://docs.ggplot2.org/current/facet_wrap.html">facet_wrap</a></li>
+</ul>
+
+<h3>
+<a id="position-adjustment" class="anchor" href="#position-adjustment" aria-hidden="true"><span class="octicon octicon-link"></span></a>Position Adjustment</h3>
+
+<ul>
+<li><a href="http://docs.ggplot2.org/current/position_dodge.html">position_dodge</a></li>
+<li><a href="http://docs.ggplot2.org/current/position_stack.html">position_fill</a></li>
+<li><a href="http://docs.ggplot2.org/current/position_stack.html">position_stack</a></li>
+</ul>
+
+<h2>
+<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples</h2>
+
+<p>The parameter <strong><em>data</em></strong> in examples can be either R data.frame or Spark DataFrame.</p>
+
+<p>If the input data is Spark DataFrame, heavyweight data processing stages are offloaded to the Spark backend using the SparkR API.</p>
+
+<h3>
+<a id="1-geom_bar" class="anchor" href="#1-geom_bar" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. geom_bar</h3>
+
+<p>Bars, rectangles with bases on x-axis</p>
+
+<div class="highlight highlight-source-r"><pre>ggplot(<span class="pl-smi">data</span>, aes(<span class="pl-v">x</span> <span class="pl-k">=</span> <span class="pl-smi">Item</span>, <span class="pl-v">fill</span> <span class="pl-k">=</span> <span class="pl-smi">Payment</span>)) <span class="pl-k">+</span> geom_bar()</pre></div>
+
+<p><img src="http://skku-skt.github.io/ggplot2.SparkR/bar.png" alt="image of bar chart"></p>
+
+<h3>
+<a id="2-geom_histogram" class="anchor" href="#2-geom_histogram" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. geom_histogram</h3>
+
+<p>Histogram. Bars, rectangles with bases on x-axis using continuous data.</p>
+
+<div class="highlight highlight-source-r"><pre>ggplot(<span class="pl-smi">data</span>, aes(<span class="pl-v">x</span> <span class="pl-k">=</span> <span class="pl-smi">Price</span>)) <span class="pl-k">+</span> geom_histogram(<span class="pl-v">binwidth</span> <span class="pl-k">=</span> <span class="pl-c1">10</span>)</pre></div>
+
+<p><img src="http://skku-skt.github.io/ggplot2.SparkR/hist.png" alt="image of bar chart"></p>
+
+<h3>
+<a id="3-stat_sum" class="anchor" href="#3-stat_sum" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. stat_sum</h3>
+
+<p>Sum unique values. Useful for overplotting on scatterplots.</p>
+
+<div class="highlight highlight-source-r"><pre>ggplot(<span class="pl-smi">data</span>, aes(<span class="pl-v">x</span> <span class="pl-k">=</span> <span class="pl-smi">Item</span>, <span class="pl-v">y</span> <span class="pl-k">=</span> <span class="pl-smi">Payment</span>)) <span class="pl-k">+</span> stat_sum()</pre></div>
+
+<p><img src="http://skku-skt.github.io/ggplot2.SparkR/stat_sum.png" alt="image of bar chart"></p>
+
+<h3>
+<a id="4-geom_bin2d" class="anchor" href="#4-geom_bin2d" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. geom_bin2d</h3>
+
+<p>Add heatmap of 2d bin counts.</p>
+
+<div class="highlight highlight-source-r"><pre>ggplot(<span class="pl-smi">data</span>, aes(<span class="pl-v">x</span> <span class="pl-k">=</span> <span class="pl-smi">Item</span>, <span class="pl-v">y</span> <span class="pl-k">=</span> <span class="pl-smi">Price</span>)) <span class="pl-k">+</span> geom_bin2d()</pre></div>
+
+<p><img src="http://skku-skt.github.io/ggplot2.SparkR/bin2d.png" alt="image of bar chart"></p>
+
+<h3>
+<a id="5-geom_boxplot" class="anchor" href="#5-geom_boxplot" aria-hidden="true"><span class="octicon octicon-link"></span></a>5. geom_boxplot</h3>
+
+<p>Calculate components of box and whisker plot.</p>
+
+<div class="highlight highlight-source-r"><pre>ggplot(<span class="pl-smi">data</span>, aes(<span class="pl-v">x</span> <span class="pl-k">=</span> <span class="pl-smi">Item</span>, <span class="pl-v">y</span> <span class="pl-k">=</span> <span class="pl-smi">Price</span>)) <span class="pl-k">+</span> geom_boxplot()</pre></div>
+
+<p><img src="http://skku-skt.github.io/ggplot2.SparkR/box.png" alt="image of bar chart"></p>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/SKKU-SKT/ggplot2.SparkR/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/SKKU-SKT/ggplot2.SparkR/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/SKKU-SKT/ggplot2.SparkR"></a> is maintained by <a href="https://github.com/SKKU-SKT">SKKU-SKT</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+       
+<ul>
+<li><a href="http://skku-skt.github.io/ggplot2.SparkR/index">Home</a></li>
+<li><a href="http://skku-skt.github.io/ggplot2.SparkR/hello-ggplot2-sparkr">Hello ggplot2.SparkR</a></li>
+<li><a href="http://skku-skt.github.io/ggplot2.SparkR/plot-types">Supported Plot Types</a></li>
+</ul>
+       
+        </aside>
+      </div>
+    </div>
+
+  </body>
+</html>
