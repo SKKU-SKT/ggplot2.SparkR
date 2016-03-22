@@ -1,4 +1,5 @@
 # Facet specification: a single panel.
+#
 
 #' @export
 facet_train_layout_SparkR.null <- function(facet, data) {
