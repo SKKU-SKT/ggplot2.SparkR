@@ -1,0 +1,70 @@
+Package: ggplot2.SparkR
+Type: Package
+Title: Rebooting ggplot2 for Scalable Big Data Visualization
+Version: 1.0
+Authors@R: c(
+    person("Jong Hyun", "Bae", role = c("aut", "cre"), email = "jonghbae@skku.edu"),
+    person("Moon Kyung", "Kim", role = "aut", email = "moonkyung1990@gmail.com"),
+    person("Jae W.", "Lee", role = "aut", email = "jaewlee@skku.edu"),
+    person("Sang Oh", "Jeong", role = "aut", email = "sangoh.jeong@sk.com")
+    )
+Description: An R package for scalable visualization of big data represented
+    in Spark DataFrame. ggplot2.SparkR is an extension to the original ggplot2
+    package and can seamlessly handle both R data.frame and Spark DataFrame with no
+    modifications to the original API.
+Depends:
+    R (>= 2.14),
+    ggplot2
+Imports:
+    grid,
+    gtable (>= 0.1.1),
+    plyr (>= 1.7.1),
+Suggests:
+    knitr,
+    testthat
+VignetteBuilder: knitr
+Enhances: sp
+Roxygen: list(wrap = FALSE)
+License: Apache License (== 2.0)
+URL: https://github.com/SKKU-SKT/ggplot2.SparkR
+BugReports: https://github.com/SKKU-SKT/ggplot2.SparkR/issues
+LazyData: true
+Collate:
+    'facet-.r'
+    'facet-grid-.r'
+    'facet-layout.r'
+    'facet-locate.r'
+    'facet-null.r'
+    'facet-wrap.r'
+    'geom-bar.r'
+    'geom-bin2d.r'
+    'geom-boxplot.r'
+    'geom-freqpoly.r'
+    'geom-histogram.r'
+    'geom-path.r'
+    'geom-point.r'
+    'geom-tile.r'
+    'ggplot2.SparkR.r'
+    'grouping.r'
+    'layer.r'
+    'panel.r'
+    'plot-build.r'
+    'plot-construction.r'
+    'plot.r'
+    'scales-.r'
+    'stat-.r'
+    'stat-bin.r'
+    'stat-bin2d.r'
+    'stat-boxplot.r'
+    'stat-count.r'
+    'stat-sum.r'
+    'utilities-layer.r'
+    'utilities.r'
+RoxygenNote: 5.0.1
+NeedsCompilation: no
+Packaged: 2015-12-07 00:12:32 UTC; jonghyun
+Author: Jong Hyun Bae [aut, cre],
+    Moon Kyung Kim [aut],
+    Jae W. Lee [aut],
+    Sang Oh Jeong [aut]
+Maintainer: Jong Hyun Bae <jonghbae@skku.edu>
