@@ -21,6 +21,3 @@
   }
 }
 
-# @rdname gg-add
-# @export
-#"%+%" <- `+.gg`

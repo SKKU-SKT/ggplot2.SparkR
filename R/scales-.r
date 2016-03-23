@@ -1,3 +1,7 @@
+scales_list <- function() {
+  ggproto(NULL, ggplot2:::ScalesList)
+}
+
 # Transform values to cardinal representation
 scales_transform_df_SparkR <- function(scales, data) {
   for(index in 1:length(scales$scales)) {

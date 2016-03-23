@@ -5,6 +5,7 @@
 # character) vectors, excluding \code{label}. The special value \code{NO_GROUP}
 # is used for all observations if no discrete variables exist.
 add_group_SparkR <- function(data) {
+  sqlContext <- get("sqlContext", envir = globalenv())
   if(is.null(data)) return(data)
   
   cols <- names(data)

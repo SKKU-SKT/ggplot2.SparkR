@@ -1,4 +1,6 @@
 bindIDs <- function(data) {
+  sc <- get("sc", envir = globalenv())
+  sqlContext <- get("sqlContext", envir = globalenv())
   pair <- dtypes(data)[[1]]
   data <- SparkR::arrange(data, data[[1]])
 

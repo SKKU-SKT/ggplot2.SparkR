@@ -1,4 +1,40 @@
 #' @export
+ggplot <- function(data = NULL, mapping = aes(), ...,
+                   environment = parent.frame()) {
+  UseMethod("ggplot")
+}
+
+#' @export
+ggplot.default <- function(data = NULL, mapping = aes(), ...,
+                           environment = parent.frame()) {
+  ggplot.data.frame(fortify(data, ...), mapping, environment = environment)
+}
+
+#' @export
+ggplot.data.frame <- function(data, mapping = aes(), ...,
+                              environment = parent.frame()) {
+  if (!missing(mapping) && !inherits(mapping, "uneval")) {
+    stop("Mapping should be created with `aes() or `aes_()`.", call. = FALSE)
+  }
+
+  p <- structure(list(
+    data = data,
+    layers = list(),
+    scales = scales_list(),
+    mapping = mapping,
+    theme = list(),
+    coordinates = coord_cartesian(),
+    facet = facet_null(),
+    plot_env = environment
+  ), class = c("gg", "ggplot"))
+  
+  p$labels <- make_labels(mapping)
+  
+  set_last_plot(p)
+  p
+}
+
+#' @export
 #' @method ggplot DataFrame
 ggplot.DataFrame <- function(data, mapping = aes(), ...,
 			     environment = getNamespace("ggplot2.SparkR")) {
@@ -9,7 +45,7 @@ ggplot.DataFrame <- function(data, mapping = aes(), ...,
   p <- structure(list(
     data = data,
     layers = list(),
-    scales = ggplot2:::scales_list(),
+    scales = scales_list(),
     mapping = mapping,
     theme = list(),
     coordinates = coord_cartesian(),

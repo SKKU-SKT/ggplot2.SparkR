@@ -65,7 +65,7 @@ StatBin_SparkR <- ggproto("StatBin_SparkR", Stat_SparkR,
 
 bin <- function(data, binwidth=NULL, bins=NULL, origin=NULL, breaks=NULL,
                 width=0.9, drop = FALSE, right = TRUE) {
-  
+  sqlContext <- get("sqlContext", envir = globalenv())
   if(length(check_type(data, "x", "int")) != 0) {
     remained <- NULL
     if(length(grep("fill", names(data)))) {

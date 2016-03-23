@@ -66,8 +66,8 @@ ggplot_build_SparkR <- function(plot) {
 
   # (TODO) Need to delete this if function
   if(!is.null(outliers)) {
-    data[[1]] <- arrange(data[[1]], x)
-    outliers <- arrange(outliers, x)
+    data[[1]] <- plyr::arrange(data[[1]], data[[1]]$x)
+    outliers <- plyr::arrange(outliers, outliers$x)
     data[[1]] <- cbind(data[[1]], outliers = outliers$outliers)
   }
 

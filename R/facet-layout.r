@@ -7,7 +7,8 @@
 #   that match the facetting variable values up with their position in the
 #   grid
 layout_grid_SparkR <- function(data, rows = NULL, cols = NULL, margins = NULL,
-    drop = TRUE, as.table = TRUE) {    
+    drop = TRUE, as.table = TRUE) {
+  sqlContext <- get("sqlContext", envir = globalenv())
   if(length(rows) == 0 && length(cols) == 0) return(layout_null())
   
   rows_char <- as.character(rows)
@@ -81,4 +82,8 @@ wrap_dims <- function(n, nrow = NULL, ncol = NULL) {
   stopifnot(nrow * ncol >= n)
 
   c(nrow, ncol)
+}
+
+layout_null <- function() {
+  data.frame(PANEL = 1, ROW = 1, COL = 1)
 }

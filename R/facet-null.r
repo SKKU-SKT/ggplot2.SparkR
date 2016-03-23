@@ -3,6 +3,7 @@
 
 #' @export
 facet_train_layout_SparkR.null <- function(facet, data) {
+  sqlContext <- get("sqlContext", envir = globalenv())
   createDataFrame(
     sqlContext,
     data.frame(PANEL = 1, ROW = 1, COL = 1,
