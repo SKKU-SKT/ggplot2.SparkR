@@ -1,4 +1,5 @@
-# @rdname geom_boxplot
+#' @rdname geom_boxplot
+#' @usage NULL
 #' @export
 stat_boxplot <- function(mapping = NULL, data = NULL, geom = "boxplot",
                          position = "dodge", coef = 1.5, na.rm = FALSE,
@@ -36,9 +37,9 @@ stat_boxplot <- function(mapping = NULL, data = NULL, geom = "boxplot",
   return(list(layer1, layer2))
 }
 
-# @rdname ggplot2-ggproto
-# @format NULL
-# @usage NULL
+#' @rdname geom_boxplot
+#' @format NULL
+#' @usage NULL
 #' @export
 StatBoxplot_SparkR <- ggproto("StatBoxplot_SparkR", Stat_SparkR,
   required_aes = StatBoxplot$required_aes,

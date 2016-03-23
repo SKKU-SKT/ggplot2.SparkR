@@ -1,6 +1,20 @@
-# Create a new layer
-#
+#' Create a new layer
+#'
+#' A layer is a combination of data, stat and geom with a potential position
+#' adjustment. Usually layers are created using \code{geom_*} or \code{stat_*}
+#' calls but it can also be created directly using this function.
+#'
 #' @export
+#' @param mapping Set of aesthetic mapping created by aes or aes_.
+#' @param data The data to be displayed in this layer.
+#' @param geom The geometric object to use display the data
+#' @param stat The statistical transformation to use on the data for this layer, as a string.
+#' @param position Position adjustment, either as a string, or the result of
+#'  a call to a position adjustment function.
+#' @param show.legend logical. Should this layer be included in the legends?
+#' @param inherit.aes If FALSE, overrides the default aesthetics, rather ehan combining with them.
+#' @param params Additional parameters to the geom and stat.
+#' @param subset DEPRECATED. Do not use now.
 layer_SparkR <- function(geom = NULL, stat = NULL,
 			 data = NULL, mapping = NULL,
 			 position = NULL, params = list(),

@@ -1,3 +1,7 @@
+#' Count two dimensional variables and present size of point
+#'
+#' @inheritParams layer_SparkR
+#' @inheritParams geom_bar
 #' @export
 stat_sum <- function(mapping = NULL, data = NULL, geom = "point",
                      position = "identity", na.rm = FALSE,
@@ -33,9 +37,9 @@ stat_sum <- function(mapping = NULL, data = NULL, geom = "point",
   return(list(layer1, layer2))
 }
 
-# @rdname ggplot2-ggproto
-# @format NULL
-# @usage NULL
+#' @rdname stat_sum
+#' @format NULL
+#' @usage NULL
 #' @export
 StatSum_SparkR <- ggproto("StatSum_SparkR", Stat_SparkR,
   default_aes = StatSum$default_aes,

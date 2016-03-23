@@ -1,4 +1,8 @@
-# @rdname geom_histogram
+#' \code{stat_bin} is suitable only for continuous x data. If your x data is
+#'   discrete, you probably want to use \code{\link{stat_count}}.
+#'
+#' @usage NULL
+#' @rdname geom_histogram
 #' @export
 stat_bin <- function(mapping = NULL, data = NULL, geom = "bar",
                      position = "stack", width = 0.9, drop = FALSE,
@@ -32,9 +36,9 @@ stat_bin <- function(mapping = NULL, data = NULL, geom = "bar",
   return(list(layer1, layer2))
 }
 
-# @rdname ggplot2-ggproto
-# @format NULL
-# @usage NULL
+#' @rdname geom_histogram
+#' @format NULL
+#' @usage NULL
 #' @export
 StatBin_SparkR <- ggproto("StatBin_SparkR", Stat_SparkR,
   required_aes = c("x"),

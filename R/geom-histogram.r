@@ -1,10 +1,25 @@
-# Histograms and frequency polygons.
-#
-# Display a 1d distribution by dividing into bins and counting the number
-# of observations in each bin. Histograms use bars; frequency polygons use
-# lines.
-#
+#' Histograms.
+#'
+#' Display a 1d distribution by dividing into bins and counting the number
+#' of observations in each bin. Histograms use bars.
+#'
 #' @export
+#' @inheritParams layer_SparkR
+#' @inheritParams geom_bar
+#' @param bins Does not use in ggplot2.SparkR
+#' @param origin Does not use in ggplot2.SparkR
+#' @param right Does not use in ggplot2.SparkR
+#' @param stat Use override the default connection between geom_histogram, geom_freqpoly and stat_bin
+#' @examples
+#' \dontrun{
+#' ggplot(faithful, aes(eruptions)) + geom_histogram()
+#'
+#' df <- createDataFrame(sqlContext, faithful)
+#' ggplot(df, aes(eruptions)) + geom_histogram()
+#' ggplot(df, aes(eruptions)) + geom_histogram(binwidth = 5)
+#'
+#' ggplot(df, aes(eruptions, fill = waiting)) + geom_histogram()
+#' }
 geom_histogram <- function(mapping = NULL, data = NULL, stat = "bin",
                           binwidth = NULL, bins = NULL, origin = NULL,
                           right = FALSE, position = "stack", na.rm = FALSE,

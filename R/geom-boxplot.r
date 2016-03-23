@@ -1,6 +1,36 @@
-# Box and whiskers plot.
-#
+#' Box and whiskers plot.
+#'
+#' The lower and upper "hinges" correspond to the first and third quartiles
+#' (the 25th and 75th percentiles). This differs slightly from the method used
+#' by the boxplot function, and may be apparent with small samples.
+#'
+#' The upper whisker extends from the hinge to the highest value that is within
+#' 1.5 * IQR of the hinge, where IQR is the inter-quartile range, or distance
+#' between the first and third quartiles. The lower whisker extends from the
+#' hinge to the lowest value within 1.5 * IQR of the hinge. Data beyond the
+#' end of the whiskers are outliers and plotted as points (as specified by Tukey).
+#'
+#' In a notched box plot, the notches extend \code{1.58 * IQR / sqrt(n)}.
+#' This gives a roughly 95% confidence interval for comparing medians.
+#' See McGill et al. (1978) for more details.
 #' @export
+#' @inheritParams layer_SparkR
+#' @inheritParams geom_bar
+#' @param stat Use to override the default connection between geom_boxplot and stat_boxplot
+#' @param outlier.colour,outlier.shape,outlier.size,outlier.stroke
+#'   Default aesthetics for outliers.
+#' @param notch if FALSE(default) make a standard box plot. 
+#' @param notchwidth for a notched box plot, width of the notch relative to
+#'   the body (default 0.5)
+#' @param varwidth if FALSE(default) make a standard box plot.
+#' @examples
+#' \dontrun{
+#' ggplot(diamonds, aes(cut, price)) + geom_boxplot()
+#'
+#' df <- createDataFrame(sqlContext, diamonds)
+#' ggplot(df, aes(cut, price)) + geom_bar()
+#' ggplot(df, aes(cut, price, fill = color)) + geom_boxplot()
+#' }
 geom_boxplot <- function(mapping = NULL, data = NULL, stat = "boxplot",
                          position = "dodge", outlier.colour = NULL,
                          outlier.shape = 19, outlier.size = 1.5,
@@ -52,9 +82,9 @@ geom_boxplot <- function(mapping = NULL, data = NULL, stat = "boxplot",
   return(list(layer1, layer2))
 }
 
-# @rdname ggplot2-ggproto
-# @format NULL
-# @usage NULL
+#' @rdname geom_boxplot
+#' @format NULL
+#' @usage NULL
 #' @export
 GeomBoxplot_SparkR <- ggproto("GeomBoxplot_SparkR", GeomBoxplot,
   setup_data = function(data, params) {

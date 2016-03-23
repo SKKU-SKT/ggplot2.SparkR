@@ -1,16 +1,34 @@
+#' Create a new ggplot plot.
+#'
+#' This function is same as ggplot2::ggplot. In ggplot2.SparkR, 
+#' we define a new method for Spark DataFrame
+#'
 #' @export
+#' @param data Default dataset to use for plot. If not already a data.frame,
+#'   will be converted to one by fortify. If not specified,
+#'   must be suppled in each layer added to the plot.
+#' @param mapping Default list of aesthetic mappings to use for plot.
+#'   If not specified, must be suppled in each layer added to the plot.
+#' @param ... Other arguments passed on to methods. Not currently used.
+#' @param environment If an variable defined in the aesthetic mapping is not
+#'   found in the data, ggplot will look for it in this environment. It defaults
+#'   to using the environment in which ggplot() is called.
 ggplot <- function(data = NULL, mapping = aes(), ...,
                    environment = parent.frame()) {
   UseMethod("ggplot")
 }
 
 #' @export
+#' @rdname ggplot
+#' @usage NULL
 ggplot.default <- function(data = NULL, mapping = aes(), ...,
                            environment = parent.frame()) {
   ggplot.data.frame(fortify(data, ...), mapping, environment = environment)
 }
 
 #' @export
+#' @rdname ggplot
+#' @usage NULL
 ggplot.data.frame <- function(data, mapping = aes(), ...,
                               environment = parent.frame()) {
   if (!missing(mapping) && !inherits(mapping, "uneval")) {
@@ -35,6 +53,8 @@ ggplot.data.frame <- function(data, mapping = aes(), ...,
 }
 
 #' @export
+#' @rdname ggplot
+#' @usage NULL
 #' @method ggplot DataFrame
 ggplot.DataFrame <- function(data, mapping = aes(), ...,
 			     environment = getNamespace("ggplot2.SparkR")) {

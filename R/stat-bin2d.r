@@ -1,6 +1,7 @@
-# Count number of observation in rectangular bins.
-#
-# @rdname geom_bin2d
+#' Count number of observation in rectangular bins.
+#'
+#' @usage NULL
+#' @rdname geom_bin2d
 #' @export
 stat_bin_2d <- function(mapping = NULL, data = NULL, geom = "tile",
 		        position = "identity", bins = 30, binwidth = NULL,
@@ -41,14 +42,15 @@ stat_bin_2d <- function(mapping = NULL, data = NULL, geom = "tile",
   return(list(layer1, layer2))
 }
 
-# @rdname geom_bin2d
-# @usage NULL
+#' @rdname geom_bin2d
+#' @usage NULL
+#' @format NULL
 #' @export
 stat_bin2d <- stat_bin_2d
 
-# @rdname ggplot2-ggproto
-# @format NULL
-# @usage NULL
+#' @rdname geom_bin2d
+#' @format NULL
+#' @usage NULL
 #' @export
 StatBin2d_SparkR <- ggproto("StatBin2d_SparkR", Stat_SparkR,
   required_aes = c("x", "y"),

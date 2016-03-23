@@ -1,4 +1,5 @@
-# @rdname geom_bar
+#' @rdname geom_bar
+#' @usage NULL
 #' @export
 stat_count <- function(mapping = NULL, data = NULL, geom = "bar",
 		     position = "stack", width = NULL, ...,
@@ -36,9 +37,9 @@ stat_count <- function(mapping = NULL, data = NULL, geom = "bar",
   return(list(layer1, layer2))
 }
 
-# @rdname ggplot2-ggproto
-# @format NULL
-# @usage NULL
+#' @rdname geom_bar
+#' @format NULL
+#' @usage NULL
 #' @export
 #' @include stat-.r
 StatCount_SparkR <- ggproto("StatCount_SparkR", Stat_SparkR,

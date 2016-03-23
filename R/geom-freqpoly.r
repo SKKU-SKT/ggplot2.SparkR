@@ -1,4 +1,7 @@
-# @rdname geom_histogram
+#' Freqpoly polygons
+#'
+#' Uses the same aesthetics as geom_line
+#' @usage NULL
 #' @export
 geom_freqpoly <- function(mapping = NULL, data = NULL, stat = "bin",
 			  position = "identity", na.rm = FALSE,

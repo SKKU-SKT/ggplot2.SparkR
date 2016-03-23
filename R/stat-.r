@@ -1,6 +1,7 @@
-# @rdname ggplot2-ggproto
-# @format NULL
-# @usage NULL
+#' ggproto class for stat_* containing main methods
+#'
+#' @format NULL
+#' @usage NULL
 #' @export
 Stat_SparkR <- ggproto("Stat_SparkR", Stat,
   retransform = TRUE,
