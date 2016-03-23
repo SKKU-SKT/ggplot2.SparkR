@@ -25,7 +25,7 @@ Suggests:
 VignetteBuilder: knitr
 Enhances: sp
 Roxygen: list(wrap = FALSE)
-License: Apache License (== 2.0)
+License: GPLv2
 URL: https://github.com/SKKU-SKT/ggplot2.SparkR
 BugReports: https://github.com/SKKU-SKT/ggplot2.SparkR/issues
 LazyData: true
