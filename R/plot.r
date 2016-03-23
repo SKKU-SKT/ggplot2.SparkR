@@ -17,16 +17,16 @@ ggplot.DataFrame <- function(data, mapping = aes(), ...,
     plot_env = environment
   ), class = c("gg", "ggplot_SparkR", "ggplot"))
  
-  p$labels <- ggplot2:::make_labels(mapping)
+  p$labels <- make_labels(mapping)
 
-  ggplot2:::set_last_plot(p)
+  set_last_plot(p)
   p
 }
 
 #' @export
 #' @method print ggplot_SparkR
 print.ggplot_SparkR <- function(x, newpage = is.null(vp), vp = NULL, ...) {
-  ggplot2:::set_last_plot(x)
+  set_last_plot(x)
   if(newpage) grid.newpage()
 
   grDevices::recordGraphics(
@@ -52,3 +52,10 @@ print.ggplot_SparkR <- function(x, newpage = is.null(vp), vp = NULL, ...) {
 #' @method plot ggplot_SparkR
 #' @export
 plot.ggplot_SparkR <- print.ggplot_SparkR
+
+plot_clone <- function(plot) {
+  p <- plot
+  p$scales <- plot$scales$clone()
+
+  p
+}

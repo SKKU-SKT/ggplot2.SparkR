@@ -26,7 +26,7 @@ scales_transform_df_SparkR <- function(scales, data) {
 scales_add_defaults_SparkR <- function(scales, data, aesthetics, env) {
   if (is.null(aesthetics)) return()
   
-  names(aesthetics) <- unlist(lapply(names(aesthetics), ggplot2:::aes_to_scale))
+  names(aesthetics) <- unlist(lapply(names(aesthetics), aes_to_scale))
   new_aesthetics <- setdiff(names(aesthetics), scales$input())
   
   # No new aesthetics, so no new scales to add
@@ -44,7 +44,7 @@ scales_add_defaults_SparkR <- function(scales, data, aesthetics, env) {
     }
     
     scale_name <- paste("scale", aes, type, sep = "_")
-    scale_f <- ggplot2:::find_global(scale_name, env, mode = "function")
+    scale_f <- find_global(scale_name, env, mode = "function")
     
     if (is.null(scale_f)) next
     
@@ -65,4 +65,20 @@ scales_add_missing_SparkR <- function(plot, aesthetics, env) {
     scale_f <- find_global(scale_name, env, mode = "function")
     plot$scales$add(scale_f())
   }
+}
+
+# Train scale from a data frame
+scales_train_df <- function(scales, df, drop = FALSE) {
+  if (empty(df) || length(scales$scales) == 0) return()
+
+  lapply(scales$scales, function(scale) scale$train_df(df = df))
+}
+
+# Map values from a data.frame. Returns data.frame
+scales_map_df <- function(scales, df) {
+  if (empty(df) || length(scales$scales) == 0) return(df)
+
+  mapped <- unlist(lapply(scales$scales, function(scale) scale$map_df(df = df)), recursive = FALSE)
+
+  plyr::quickdf(c(mapped, df[setdiff(names(df), names(mapped))]))
 }

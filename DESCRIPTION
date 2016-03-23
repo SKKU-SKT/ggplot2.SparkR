@@ -14,11 +14,13 @@ Description: An R package for scalable visualization of big data represented
     modifications to the original API.
 Depends:
     R (>= 2.14),
-    ggplot2
+    ggplot2,
+    SparkR (>= 1.5.0)
 Imports:
     grid,
     gtable (>= 0.1.1),
     plyr (>= 1.7.1),
+    scales
 Suggests:
     knitr,
     testthat
@@ -30,6 +32,8 @@ URL: https://github.com/SKKU-SKT/ggplot2.SparkR
 BugReports: https://github.com/SKKU-SKT/ggplot2.SparkR/issues
 LazyData: true
 Collate:
+    'aes-calculated.r'
+    'aes.r'
     'facet-.r'
     'facet-grid-.r'
     'facet-layout.r'
@@ -46,11 +50,14 @@ Collate:
     'geom-tile.r'
     'ggplot2.SparkR.r'
     'grouping.r'
+    'labels.r'
     'layer.r'
     'panel.r'
     'plot-build.r'
     'plot-construction.r'
+    'plot-last.r'
     'plot.r'
+    'scale-type.r'
     'scales-.r'
     'stat-.r'
     'stat-bin.r'

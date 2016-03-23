@@ -61,9 +61,24 @@ layout_wrap_SparkR <- function(data, vars = NULL, nrow = NULL, ncol = NULL,
   panels <- withColumnRenamed(panels, paste0(vars, "id"), vars)
   panels <- withColumnRenamed(panels, "id", "PANEL")
 
-  dims <- ggplot2:::wrap_dims(nrow(panels), nrow, ncol)
+  dims <- wrap_dims(nrow(panels), nrow, ncol)
   panels <- SparkR::mutate(panels, ROW = floor((panels$PANEL - 1) / dims[2] + 1),
     COL = pmod(panels$PANEL - 1, lit(dims[2])) + 1)
 
   select(panels, vars, "PANEL", "ROW", "COL")
+}
+
+wrap_dims <- function(n, nrow = NULL, ncol = NULL) {
+  if (is.null(ncol) && is.null(nrow)) {
+    rc <- grDevices::n2mfrow(n)
+    nrow <- rc[2]
+    ncol <- rc[1]
+  } else if (is.null(ncol)) {
+    ncol <- ceiling(n / nrow)
+  } else if (is.null(nrow)) {
+    nrow <- ceiling(n / ncol)
+  }
+  stopifnot(nrow * ncol >= n)
+
+  c(nrow, ncol)
 }

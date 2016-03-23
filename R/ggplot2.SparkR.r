@@ -1,2 +1,3 @@
-#' @import grid gtable plyr
+#' @import grid gtable plyr scales
 NULL
+

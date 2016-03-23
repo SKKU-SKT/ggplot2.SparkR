@@ -81,7 +81,7 @@ bin <- function(data, binwidth=NULL, bins=NULL, origin=NULL, breaks=NULL,
     if(is.null(binwidth)) binwidth <- diff(range) / 30
     if(is.null(breaks)) {
       if(is.null(origin)) {
-        breaks <- scales::fullseq(range, binwidth, pad = TRUE)
+        breaks <- fullseq(range, binwidth, pad = TRUE)
       } else {
         breaks <- seq(origin, max(range) + binwidth, binwidth)
       }

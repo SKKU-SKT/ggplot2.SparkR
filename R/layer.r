@@ -31,14 +31,14 @@ layer_SparkR <- function(geom = NULL, stat = NULL,
   }
  
   if (is.character(geom))
-    geom <- ggplot2:::find_subclass("Geom", geom)
+    geom <- find_subclass("Geom", geom)
   if (is.character(stat))
     stat <- find_subclass_SparkR("Stat", stat)
   if (is.character(position))
-    position <- ggplot2:::find_subclass("Position", position)
+    position <- find_subclass("Position", position)
    
   # Split up params between aesthetics, geom, and stat
-  params <- ggplot2:::rename_aes(params)
+  params <- rename_aes(params)
 
   aes_params  <- params[intersect(names(params), geom$aesthetics())]
   geom_params <- params[intersect(names(params), geom$parameters(TRUE))]
@@ -156,11 +156,25 @@ Layer_SparkR <- ggproto("Layer", ggplot2:::Layer,
 )
 
 find_subclass_SparkR <- function(super, class) {
-  name <- paste0(super, ggplot2:::camelize(class, first = TRUE), "_SparkR")
+  name <- paste0(super, camelize(class, first = TRUE), "_SparkR")
 
   obj <- get(name)
   if (!inherits(obj, super)) {
     stop("Found object is not a ", tolower(super), ".", call. = FALSE)
   }
+  obj
+}
+
+find_subclass <- function(super, class) {
+  name <- paste0(super, camelize(class, first = TRUE))
+  if (!exists(name)) {
+    stop("No ", tolower(super), " called ", name, ".", call. = FALSE)
+  }
+
+  obj <- get(name)
+  if (!inherits(obj, super)) {
+    stop("Found object is not a ", tolower(super), ".", call. = FALSE)
+  }
+
   obj
 }

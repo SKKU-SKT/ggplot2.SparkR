@@ -2,7 +2,7 @@
 #
 #' @export
 ggplot_build_SparkR <- function(plot) {
-  plot <- ggplot2:::plot_clone(plot)
+  plot <- plot_clone(plot)
   if(length(plot$layers) == 0) {
     plot <- plot + geom_blank()
   }
@@ -58,7 +58,7 @@ ggplot_build_SparkR <- function(plot) {
   # Re-train and map.  This ensures that facets have control
   # over the range of a plot: is it generated from what's
   # displayed, or does it include the range of underlying data
-  ggplot2:::reset_scales(panel)
+  reset_scales(panel)
   panel <- train_position_SparkR(panel, data, scale_x(), scale_y())
   data <- map_position_SparkR(data)
 
@@ -74,8 +74,8 @@ ggplot_build_SparkR <- function(plot) {
   # Train and map non-position scales
   npscales <- scales$non_position_scales()
   if (npscales$n() > 0) {
-    lapply(data, ggplot2:::scales_train_df, scales = npscales)
-    data <- lapply(data, ggplot2:::scales_map_df, scales = npscales)
+    lapply(data, scales_train_df, scales = npscales)
+    data <- lapply(data, scales_map_df, scales = npscales)
   }
 
   # Apply position to adjustments

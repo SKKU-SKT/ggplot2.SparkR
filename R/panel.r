@@ -145,7 +145,26 @@ train_ranges_SparkR <- function(panel, data, plot) {
     panel$y_scales[[1]]$range$range <- c(y_min, y_max)
   }
   
-  panel <- ggplot2:::train_ranges(panel, plot$coordinates)
+  panel <- train_ranges(panel, plot$coordinates)
 
+  panel
+}
+
+reset_scales <- function(panel) {
+  if(!panel$shrink) return()
+  lapply(panel$x_scales, function(s) s$reset())
+  lapply(panel$y_scales, function(s) s$reset())
+  invisible()
+}
+
+# Compute ranges and dimensions of each panel, using the coord.
+train_ranges <- function(panel, coord) {
+  compute_range <- function(ix, iy) {
+  # TODO: change coord_train method to take individual x and y scales
+    coord$train(list(x = panel$x_scales[[ix]], y = panel$y_scales[[iy]]))
+  }
+
+  panel$ranges <- Map(compute_range,
+    panel$layout$SCALE_X, panel$layout$SCALE_Y)
   panel
 }

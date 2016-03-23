@@ -12,15 +12,15 @@
 "+.gg" <- function(e1, e2) {
   if(length(e2) == 2) {
     if(class(e1$data)[1] == "DataFrame") {
-      ggplot2:::`+.gg`(e1, e2[[2]])
+      `%+%`(e1, e2[[2]])
     } else {
-      ggplot2:::`+.gg`(e1, e2[[1]])
+      `%+%`(e1, e2[[1]])
     }
   } else {
-    ggplot2:::`+.gg`(e1, e2)
+    `%+%`(e1, e2)
   }
 }
 
 # @rdname gg-add
-#' @export
-"%+%" <- `+.gg`
+# @export
+#"%+%" <- `+.gg`
