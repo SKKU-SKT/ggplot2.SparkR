@@ -1,15 +1,16 @@
 Package: ggplot2.SparkR
 Type: Package
 Title: Rebooting ggplot2 for Scalable Big Data Visualization
-Version: 1.0
+Version: 1.0.3
 Authors@R: c(
     person("Jong Hyun", "Bae", role = c("aut", "cre"), email = "jonghbae@skku.edu"),
     person("Moon Kyung", "Kim", role = "aut", email = "moonkyung1990@gmail.com"),
     person("Jae W.", "Lee", role = "aut", email = "jaewlee@skku.edu"),
     person("Sang Oh", "Jeong", role = "aut", email = "sangoh.jeong@sk.com")
     )
+Maintainer: Jong Hyun Bae <jonghbae@skku.edu>
 Description: An R package for scalable visualization of big data represented
-    in Spark DataFrame. ggplot2.SparkR is an extension to the original ggplot2
+    in Spark DataFrame. Its R API is an extension to the original ggplot2
     package and can seamlessly handle both R data.frame and Spark DataFrame with no
     modifications to the original API.
 Depends:
