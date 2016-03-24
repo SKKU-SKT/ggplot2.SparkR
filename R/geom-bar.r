@@ -12,11 +12,17 @@
 #' bar chart.
 #'
 #' @export
-#' @param width Bar width.
-#' @param binwidth geom_bar no longer has a binwidth arhument
+#' @param mapping Set of aesthetic mapping created by aes or aes_.
+#' @param data The data to be displayed in this layer.
 #' @param stat Override the default connection between geom_bar and stat_count
-#' @param na.rm If FALSE, removes missing values with a warning (not used in ggplot2.SparkR).
+#' @param position Position adjustment, either as a string, or the result of
+#'  a call to a position adjustment function.
+#' @param width Bar width.
+#' @param binwidth geom_bar no longer has a binwidth argument
 #' @param ... other arguments passed on to layer.
+#' @param na.rm If FALSE, removes missing values with a warning (not used in ggplot2.SparkR).
+#' @param show.legend logical. Should this layer be included in the legends?
+#' @param inherit.aes If FALSE, overrides the default aesthetics, rather ehan combining with them.
 #' @examples
 #' \dontrun{
 #' ggplot(faithful, aes(x = eruptions)) + geom_bar()
@@ -35,7 +41,7 @@ geom_bar <- function(mapping = NULL, data = NULL, stat = "count",
     data = data,
     mapping = mapping,
     stat = stat,
-    geom = ggplot2::GeomBar,
+    geom = GeomBar,
     position = position,
     show.legend = show.legend,
     inherit.aes = inherit.aes,

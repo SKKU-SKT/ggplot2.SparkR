@@ -40,8 +40,6 @@ the body (default 0.5)}
 \item{inherit.aes}{If FALSE, overrides the default aesthetics, rather ehan combining with them.}
 
 \item{...}{other arguments passed on to layer.}
-
-\item{geom}{The geometric object to use display the data}
 }
 \description{
 The lower and upper "hinges" correspond to the first and third quartiles

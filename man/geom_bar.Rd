@@ -24,7 +24,7 @@ a call to a position adjustment function.}
 
 \item{width}{Bar width.}
 
-\item{binwidth}{geom_bar no longer has a binwidth arhument}
+\item{binwidth}{geom_bar no longer has a binwidth argument}
 
 \item{...}{other arguments passed on to layer.}
 
@@ -33,8 +33,6 @@ a call to a position adjustment function.}
 \item{show.legend}{logical. Should this layer be included in the legends?}
 
 \item{inherit.aes}{If FALSE, overrides the default aesthetics, rather ehan combining with them.}
-
-\item{geom}{The geometric object to use display the data}
 }
 \description{
 There are two types of bar charts, determined by what is mapped to bar

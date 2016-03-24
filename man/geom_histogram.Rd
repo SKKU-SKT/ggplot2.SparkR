@@ -19,7 +19,7 @@ geom_histogram(mapping = NULL, data = NULL, stat = "bin",
 
 \item{stat}{Use override the default connection between geom_histogram, geom_freqpoly and stat_bin}
 
-\item{binwidth}{geom_bar no longer has a binwidth arhument}
+\item{binwidth}{???}
 
 \item{bins}{Does not use in ggplot2.SparkR}
 
@@ -30,17 +30,13 @@ geom_histogram(mapping = NULL, data = NULL, stat = "bin",
 \item{position}{Position adjustment, either as a string, or the result of
 a call to a position adjustment function.}
 
-\item{na.rm}{If FALSE, removes missing values with a warning (not used in ggplot2.SparkR).}
+\item{na.rm}{Not used in ggplot2.SparkR}
 
 \item{show.legend}{logical. Should this layer be included in the legends?}
 
 \item{inherit.aes}{If FALSE, overrides the default aesthetics, rather ehan combining with them.}
 
 \item{...}{other arguments passed on to layer.}
-
-\item{geom}{The geometric object to use display the data}
-
-\item{width}{Bar width.}
 }
 \description{
 Display a 1d distribution by dividing into bins and counting the number

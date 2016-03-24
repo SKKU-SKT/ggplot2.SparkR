@@ -5,6 +5,29 @@
 \alias{GeomPath_SparkR}
 \alias{geom_freqpoly}
 \title{Freqpoly polygons}
+\usage{
+geom_freqpoly(mapping = NULL, data = NULL, stat = "bin",
+  position = "identity", na.rm = FALSE, show.legend = NA,
+  inherit.aes = TRUE, ...)
+}
+\arguments{
+\item{mapping}{Set of aesthetic mapping created by aes or aes_.}
+
+\item{data}{The data to be displayed in this layer.}
+
+\item{stat}{Use override the default connection between geom_histogram, geom_freqpoly and stat_bin}
+
+\item{position}{Position adjustment, either as a string, or the result of
+a call to a position adjustment function.}
+
+\item{na.rm}{Not used in ggplot2.SparkR}
+
+\item{show.legend}{logical. Should this layer be included in the legends?}
+
+\item{inherit.aes}{If FALSE, overrides the default aesthetics, rather ehan combining with them.}
+
+\item{...}{other arguments passed on to layer.}
+}
 \description{
 Uses the same aesthetics as geom_line
 }

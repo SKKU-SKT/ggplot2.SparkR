@@ -30,8 +30,6 @@ a call to a position adjustment function.}
 \item{inherit.aes}{If FALSE, overrides the default aesthetics, rather ehan combining with them.}
 
 \item{...}{other arguments passed on to layer.}
-
-\item{geom}{The geometric object to use display the data}
 }
 \description{
 Add heatmap of 2d bin counts.

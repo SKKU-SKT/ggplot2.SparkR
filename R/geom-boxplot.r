@@ -14,8 +14,13 @@
 #' This gives a roughly 95% confidence interval for comparing medians.
 #' See McGill et al. (1978) for more details.
 #' @export
-#' @inheritParams layer_SparkR
 #' @inheritParams geom_bar
+#' @param mapping Set of aesthetic mapping created by aes or aes_.
+#' @param data The data to be displayed in this layer.
+#' @param position Position adjustment, either as a string, or the result of
+#'  a call to a position adjustment function.
+#' @param show.legend logical. Should this layer be included in the legends?
+#' @param inherit.aes If FALSE, overrides the default aesthetics, rather ehan combining with them.
 #' @param stat Use to override the default connection between geom_boxplot and stat_boxplot
 #' @param outlier.colour,outlier.shape,outlier.size,outlier.stroke
 #'   Default aesthetics for outliers.
