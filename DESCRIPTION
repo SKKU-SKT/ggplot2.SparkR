@@ -14,7 +14,7 @@ Description: An R package for visualization of big data represented in Spark.
     handle both R and Spark data structure with no modifications to the original api.
 Depends:
     R (>= 2.14),
-    ggplot2
+    ggplot2 (>= 2.1.0)
 Imports:
     grid,
     gtable (>= 0.1.1),
