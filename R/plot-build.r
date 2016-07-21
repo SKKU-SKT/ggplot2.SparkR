@@ -64,8 +64,6 @@ ggplot_build_SparkR <- function(plot) {
   data <- map_position_SparkR(data)
   data <- lapply(data, function(data) collect(SparkR::arrange(data, "group", "x")))
 
-  data <- lapply(data, collect)
-
   # (TODO) Need to delete this if function
   if(!is.null(outliers)) {
     outliers <- plyr::arrange(outliers, x)
