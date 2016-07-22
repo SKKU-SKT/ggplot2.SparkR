@@ -79,11 +79,11 @@ StatBin2d_SparkR <- ggproto("StatBin2d_SparkR", Stat_SparkR,
     data <- SparkR::join(data, breaks_df_y, data$y >= breaks_df_y$ymin & data$y < breaks_df_y$ymax, "inner")
 
     if(length(grep("fill", columns(data)))) {
-      data <- SparkR::count(groupBy(data, "PANEL", "group", "xmin", "xmax", "ymin", "ymax", "fill"))
+      data <- SparkR::count(groupBy(data, "PANEL", "group", "x", "xmin", "xmax", "ymin", "ymax", "fill"))
     } else if(length(grep("colour", columns(data)))) {
-      data <- SparkR::count(groupBy(data, "PANEL", "group", "xmin", "xmax", "ymin", "ymax", "colour"))
+      data <- SparkR::count(groupBy(data, "PANEL", "group", "x", "xmin", "xmax", "ymin", "ymax", "colour"))
     } else {
-      data <- SparkR::count(groupBy(data, "PANEL", "group", "xmin", "xmax", "ymin", "ymax"))
+      data <- SparkR::count(groupBy(data, "PANEL", "group", "x", "xmin", "xmax", "ymin", "ymax"))
     }
    
     sum_count <- collect(select(data, sum(data$count)))
