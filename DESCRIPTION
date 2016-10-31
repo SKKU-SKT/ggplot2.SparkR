@@ -11,7 +11,7 @@ Authors@R: c(
 Maintainer: Jong Hyun Bae <jonghbae@skku.edu>
 Description: An R package for visualization of big data represented in Spark. 
     Its R api is an extension to the original package and can seamlessly 
-    handle both R and Spark data structure with no modifications to the original api.
+    handle both R and Spark data structure with no modifications to the original api..
 Depends:
     R (>= 2.14),
     ggplot2 (>= 2.1.0)
