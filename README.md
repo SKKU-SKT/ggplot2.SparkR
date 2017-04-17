@@ -8,7 +8,8 @@ ggplot2.SparkR requires no additional training for existing R users who are alre
 familiar with ggplot2 and allows them to benefit from powerful distributed processing 
 capabilities of Spark for efficient visualization of big data. 
 
-Until now, 6 graph types (bar, bin2d, boxplot, freqpoly, histogram, stat-sum graphs) and 15 options 
+Until now, 6 graph types (bar, bin2d, boxplot, freqpoly, histogram, stat-sum graphs) 
+and 15 options 
 are supported. We plans to further extend it in the future.
 
 Find out more at <http://skku-skt.github.io/ggplot2.SparkR/>
