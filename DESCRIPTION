@@ -20,7 +20,7 @@ Imports:
     gtable (>= 0.1.1),
     plyr (>= 1.7.1),
     scales,
-    SparkR (< 1.6.2)
+    SparkR (< 2.0.0)
 Suggests:
     knitr,
     testthat
